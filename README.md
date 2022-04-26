@@ -1,2 +1,3 @@
 # Chatty
-Initial commit. 
+Messenger app.
+Firebase Cloud Firestore, TableViews, NavController Stacks, Segues and Cocoapods.
