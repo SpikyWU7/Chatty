@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class ChatViewController: UIViewController {
     
@@ -17,9 +18,26 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup
+        title = "💬CHATTY💭"
+        navigationItem.hidesBackButton = true
     }
     
     @IBAction func sendMessagePressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+            
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        
+        
+        
+//        performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
     }
     
 }

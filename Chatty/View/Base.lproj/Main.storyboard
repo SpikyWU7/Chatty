@@ -125,7 +125,6 @@
                                         </state>
                                         <connections>
                                             <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzH-hV-Nby"/>
-                                            <segue destination="lwd-AH-u8E" kind="show" identifier="RegisterToChat" id="Il8-qr-7qb"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="jY9-l3-E1g">
@@ -170,6 +169,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="u72-XV-6FN" id="AOT-AC-0Rp"/>
                         <outlet property="passwordTextField" destination="hLb-P9-NkF" id="cCg-3O-1mp"/>
+                        <segue destination="lwd-AH-u8E" kind="show" identifier="RegisterToChat" id="BoI-MD-atG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,7 +229,6 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="5v2-hE-4Ub" eventType="touchUpInside" id="Gpg-UF-8f1"/>
-                                            <segue destination="lwd-AH-u8E" kind="show" identifier="LoginToChat" id="a5n-eu-3Tn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -265,6 +264,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="F21-w0-z4z" id="96h-60-Tnp"/>
                         <outlet property="passwordTextField" destination="abR-gz-opL" id="cjb-dn-ob5"/>
+                        <segue destination="lwd-AH-u8E" kind="show" identifier="LoginToChat" id="wYn-vZ-OgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcE-Gk-YZg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -282,6 +282,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S6L-hg-cne">
                                 <rect key="frame" x="0.0" y="88" width="414" height="714"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" name="Blue"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" id="fAI-uC-s9a">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
@@ -320,7 +322,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="Blue"/>
+                                <color key="backgroundColor" name="NavyBlue"/>
                                 <constraints>
                                     <constraint firstItem="pym-e9-R2r" firstAttribute="top" secondItem="xlo-0G-XA6" secondAttribute="top" constant="20" id="27T-Dx-HYk"/>
                                     <constraint firstItem="UWj-GQ-Vph" firstAttribute="top" secondItem="xlo-0G-XA6" secondAttribute="top" constant="20" id="FKs-Vm-x9G"/>
@@ -332,7 +334,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6YX-ca-E8f"/>
-                        <color key="backgroundColor" name="Blue"/>
+                        <color key="backgroundColor" name="NavyBlue"/>
                         <constraints>
                             <constraint firstItem="S6L-hg-cne" firstAttribute="trailing" secondItem="6YX-ca-E8f" secondAttribute="trailing" id="DBU-jl-PPO"/>
                             <constraint firstItem="xlo-0G-XA6" firstAttribute="leading" secondItem="6YX-ca-E8f" secondAttribute="leading" id="JMa-Pn-SZL"/>
@@ -343,7 +345,13 @@
                             <constraint firstItem="S6L-hg-cne" firstAttribute="top" secondItem="6YX-ca-E8f" secondAttribute="top" id="sQt-L5-8LV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp"/>
+                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out ↩︎" style="done" id="oJ0-lI-A5j">
+                            <connections>
+                                <action selector="logOutPressed:" destination="lwd-AH-u8E" id="ec5-7p-zSs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatTableView" destination="S6L-hg-cne" id="EDY-f4-urV"/>
                         <outlet property="messageTextField" destination="UWj-GQ-Vph" id="LHG-Z0-8j7"/>
@@ -376,7 +384,7 @@
         <designable name="y7D-jv-BlJ"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Il8-qr-7qb"/>
+        <segue reference="wYn-vZ-OgH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
