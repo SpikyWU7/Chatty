@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		668F7D12F29BA61911C2D6CB /* Pods_Chatty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A74D7895D23152EC90A4C6 /* Pods_Chatty.framework */; };
+		9E0A8A8F281BEEB200FA8688 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E0A8A8E281BEEB200FA8688 /* GoogleService-Info.plist */; };
 		9EFF891528184BCE0097CA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF891428184BCE0097CA14 /* AppDelegate.swift */; };
 		9EFF891728184BCE0097CA14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF891628184BCE0097CA14 /* SceneDelegate.swift */; };
 		9EFF891928184BCE0097CA14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF891828184BCE0097CA14 /* WelcomeViewController.swift */; };
@@ -19,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B57A508874E713719E2FFBE /* Pods-Chatty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatty.release.xcconfig"; path = "Target Support Files/Pods-Chatty/Pods-Chatty.release.xcconfig"; sourceTree = "<group>"; };
+		480BB968D05E24C86F2ED899 /* Pods-Chatty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatty.debug.xcconfig"; path = "Target Support Files/Pods-Chatty/Pods-Chatty.debug.xcconfig"; sourceTree = "<group>"; };
+		9E0A8A89281BDFD100FA8688 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9E0A8A8E281BEEB200FA8688 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EFF891128184BCE0097CA14 /* Chatty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFF891428184BCE0097CA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFF891628184BCE0097CA14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +36,7 @@
 		9EFF89322819AD830097CA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EFF89342819AE610097CA14 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9EFF89362819AE890097CA14 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E0A74D7895D23152EC90A4C6 /* Pods_Chatty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +44,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668F7D12F29BA61911C2D6CB /* Pods_Chatty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C123AC0F33314A67402E15C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E0A8A89281BDFD100FA8688 /* Foundation.framework */,
+				E0A74D7895D23152EC90A4C6 /* Pods_Chatty.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9EFF890828184BCE0097CA14 = {
 			isa = PBXGroup;
 			children = (
 				9EFF891328184BCE0097CA14 /* Chatty */,
 				9EFF891228184BCE0097CA14 /* Products */,
+				CFCA3E746A69C87E1F5BFFB9 /* Pods */,
+				9C123AC0F33314A67402E15C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +88,7 @@
 				9EFF892A28184BE20097CA14 /* Controller */,
 				9EFF891D28184BCF0097CA14 /* Assets.xcassets */,
 				9EFF891F28184BCF0097CA14 /* LaunchScreen.storyboard */,
+				9E0A8A8E281BEEB200FA8688 /* GoogleService-Info.plist */,
 				9EFF892228184BCF0097CA14 /* Info.plist */,
 			);
 			path = Chatty;
@@ -100,6 +120,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		CFCA3E746A69C87E1F5BFFB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				480BB968D05E24C86F2ED899 /* Pods-Chatty.debug.xcconfig */,
+				1B57A508874E713719E2FFBE /* Pods-Chatty.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EFF892528184BCF0097CA14 /* Build configuration list for PBXNativeTarget "Chatty" */;
 			buildPhases = (
+				998940F4E9FCDA03C5ABF3E4 /* [CP] Check Pods Manifest.lock */,
 				9EFF890D28184BCE0097CA14 /* Sources */,
 				9EFF890E28184BCE0097CA14 /* Frameworks */,
 				9EFF890F28184BCE0097CA14 /* Resources */,
+				4BD1BAD3556321C80C3B5C2C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +175,8 @@
 				Base,
 			);
 			mainGroup = 9EFF890828184BCE0097CA14;
+			packageReferences = (
+			);
 			productRefGroup = 9EFF891228184BCE0097CA14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,12 +192,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EFF892128184BCF0097CA14 /* LaunchScreen.storyboard in Resources */,
+				9E0A8A8F281BEEB200FA8688 /* GoogleService-Info.plist in Resources */,
 				9EFF891E28184BCF0097CA14 /* Assets.xcassets in Resources */,
 				9EFF89332819AD830097CA14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4BD1BAD3556321C80C3B5C2C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chatty/Pods-Chatty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chatty/Pods-Chatty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chatty/Pods-Chatty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		998940F4E9FCDA03C5ABF3E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chatty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9EFF890D28184BCE0097CA14 /* Sources */ = {
@@ -252,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -306,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -318,6 +394,7 @@
 		};
 		9EFF892628184BCF0097CA14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 480BB968D05E24C86F2ED899 /* Pods-Chatty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -331,6 +408,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,12 +418,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9EFF892728184BCF0097CA14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B57A508874E713719E2FFBE /* Pods-Chatty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -359,6 +438,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,7 +448,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

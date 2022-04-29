@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TZE-V0-ZeU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -31,7 +32,7 @@
                                     <segue destination="5v2-hE-4Ub" kind="show" id="Hbv-Qh-oKh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💬CHATTY💭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7D-jv-BlJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💬CHATTY💭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7D-jv-BlJ" customClass="CLTypingLabel" customModule="CLTypingLabel">
                                 <rect key="frame" x="52" y="418" width="310" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ph1-wX-D3a"/>
@@ -124,7 +125,7 @@
                                         </state>
                                         <connections>
                                             <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzH-hV-Nby"/>
-                                            <segue destination="lwd-AH-u8E" kind="show" id="Il8-qr-7qb"/>
+                                            <segue destination="lwd-AH-u8E" kind="show" identifier="RegisterToChat" id="Il8-qr-7qb"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="jY9-l3-E1g">
@@ -228,7 +229,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="5v2-hE-4Ub" eventType="touchUpInside" id="Gpg-UF-8f1"/>
-                                            <segue destination="lwd-AH-u8E" kind="show" id="a5n-eu-3Tn"/>
+                                            <segue destination="lwd-AH-u8E" kind="show" identifier="LoginToChat" id="a5n-eu-3Tn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -371,6 +372,11 @@
             <point key="canvasLocation" x="-86.956521739130437" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="y7D-jv-BlJ">
+            <size key="intrinsicContentSize" width="257" height="48"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Il8-qr-7qb"/>
     </inferredMetricsTieBreakers>
