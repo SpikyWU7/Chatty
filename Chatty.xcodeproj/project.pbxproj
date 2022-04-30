@@ -37,6 +37,8 @@
 		9E0A8AC6281BF7D300FA8688 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0A8AC5281BF7D300FA8688 /* FirebaseStorage */; };
 		9E0A8AC8281BF7D300FA8688 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0A8AC7281BF7D300FA8688 /* FirebaseStorageCombine-Community */; };
 		9E0A8ACA281BF7D300FA8688 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0A8AC9281BF7D300FA8688 /* FirebaseStorageSwift-Beta */; };
+		9E0A8ACC281D396900FA8688 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8ACB281D396900FA8688 /* Constants.swift */; };
+		9E0A8ACE281D3FE200FA8688 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0A8ACD281D3FE200FA8688 /* Message.swift */; };
 		9EFF891528184BCE0097CA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF891428184BCE0097CA14 /* AppDelegate.swift */; };
 		9EFF891728184BCE0097CA14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF891628184BCE0097CA14 /* SceneDelegate.swift */; };
 		9EFF891928184BCE0097CA14 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF891828184BCE0097CA14 /* WelcomeViewController.swift */; };
@@ -53,6 +55,8 @@
 		480BB968D05E24C86F2ED899 /* Pods-Chatty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatty.debug.xcconfig"; path = "Target Support Files/Pods-Chatty/Pods-Chatty.debug.xcconfig"; sourceTree = "<group>"; };
 		9E0A8A89281BDFD100FA8688 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9E0A8A8E281BEEB200FA8688 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9E0A8ACB281D396900FA8688 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9E0A8ACD281D3FE200FA8688 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		9EFF891128184BCE0097CA14 /* Chatty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFF891428184BCE0097CA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EFF891628184BCE0097CA14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				9EFF891F28184BCF0097CA14 /* LaunchScreen.storyboard */,
 				9E0A8A8E281BEEB200FA8688 /* GoogleService-Info.plist */,
 				9EFF892228184BCF0097CA14 /* Info.plist */,
+				9E0A8ACB281D396900FA8688 /* Constants.swift */,
 			);
 			path = Chatty;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 		9EFF892828184BD60097CA14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E0A8ACD281D3FE200FA8688 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +344,8 @@
 				9EFF891528184BCE0097CA14 /* AppDelegate.swift in Sources */,
 				9EFF891728184BCE0097CA14 /* SceneDelegate.swift in Sources */,
 				9EFF89352819AE610097CA14 /* LoginViewController.swift in Sources */,
+				9E0A8ACC281D396900FA8688 /* Constants.swift in Sources */,
+				9E0A8ACE281D3FE200FA8688 /* Message.swift in Sources */,
 				9EFF89372819AE890097CA14 /* ChatViewController.swift in Sources */,
 				9EFF892C2819682D0097CA14 /* RegisterViewController.swift in Sources */,
 			);
