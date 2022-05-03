@@ -359,6 +359,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sh2-4y-Ix4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="NavyBlue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                            <color key="textColor" name="LightBlue"/>
+                            <color key="textShadowColor" name="Blue"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -376,11 +383,14 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="wYn-vZ-OgH"/>
+        <segue reference="BoI-MD-atG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="textfield" width="298" height="93"/>
+        <namedColor name="Blue">
+            <color red="0.164000004529953" green="0.0" blue="0.6380000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LightBlue">
             <color red="0.25499999523162842" green="0.79100000858306885" blue="0.80099999904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

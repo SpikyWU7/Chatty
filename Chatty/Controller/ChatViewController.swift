@@ -14,6 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
+    var listener: ListenerRegistration?
     let db = Firestore.firestore()
     
     var messages: [Message] = [
@@ -37,9 +38,9 @@ class ChatViewController: UIViewController {
     
     func loadMessages() {
         
-        db.collection(K.FStore.collectionName)
+        listener = db.collection(K.FStore.collectionName)
             .order(by: K.FStore.dateField)
-            .addSnapshotListener { querySnapshot, error in
+            .addSnapshotListener { (querySnapshot, error) in
             
             self.messages = []
             
@@ -56,6 +57,8 @@ class ChatViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.chatTableView.reloadData()
+                                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                                self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
                             }
                         }
                     }
@@ -77,6 +80,11 @@ class ChatViewController: UIViewController {
                     print("Error: Some issue with saving data to firestore, \(e)")
                 } else {
                     print("Succesfuly saved data")
+                    
+                    DispatchQueue.main.async {
+                        self.messageTextField.endEditing(true)
+                        self.messageTextField.text = ""
+                    }
                 }
             }
         }
@@ -84,7 +92,11 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        
         let firebaseAuth = Auth.auth()
+        if let safeListener = listener {
+            safeListener.remove()
+        }
         do {
             try firebaseAuth.signOut()
             navigationController?.popToRootViewController(animated: true)
@@ -116,8 +128,8 @@ extension ChatViewController: UITableViewDataSource {
         if message.sender == Auth.auth().currentUser?.email {
             cell.leftImageView.isHidden = true
             cell.rightImageView.isHidden = false
-            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightBlue)
-            cell.label.textColor = UIColor(named: K.BrandColors.purple)
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.navyBlue)
+            cell.label.textColor = UIColor(named: K.BrandColors.lightBlue)
         }
         //Message from the another sender
         else {
