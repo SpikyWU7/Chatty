@@ -31,14 +31,47 @@ class ChatViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         chatTableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        
+        loadMessages()
     }
+    
+    func loadMessages() {
+        
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { querySnapshot, error in
+            
+            self.messages = []
+            
+            if let e = error {
+                print("ERROR: Issue with retrieving data from Firestore. \(e)")
+            } else {
+//                querySnapshot?.documents[0].data()[K.FStore.senderField]
+                if let snapshotDocuments = querySnapshot?.documents {
+                    for doc in snapshotDocuments {
+                        let data = doc.data()
+                        if let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String {
+                            let newMessage = Message(sender: messageSender, body: messageBody)
+                            self.messages.append(newMessage)
+                            
+                            DispatchQueue.main.async {
+                                self.chatTableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     @IBAction func sendMessagePressed(_ sender: UIButton) {
         
         if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
             db.collection(K.FStore.collectionName).addDocument(data: [
                 K.FStore.senderField: messageSender,
-                K.FStore.bodyField: messageBody
+                K.FStore.bodyField: messageBody,
+                K.FStore.dateField: Date().timeIntervalSince1970
             ]) { (error) in
                 if let e = error {
                     print("Error: Some issue with saving data to firestore, \(e)")
@@ -68,14 +101,33 @@ class ChatViewController: UIViewController {
 }
 
 extension ChatViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
         
         let cell = chatTableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
-        cell.label.text = messages[indexPath.row].body
+        cell.label.text = message.body
+        
+        //Message from the current user
+        if message.sender == Auth.auth().currentUser?.email {
+            cell.leftImageView.isHidden = true
+            cell.rightImageView.isHidden = false
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightBlue)
+            cell.label.textColor = UIColor(named: K.BrandColors.purple)
+        }
+        //Message from the another sender
+        else {
+            cell.leftImageView.isHidden = false
+            cell.rightImageView.isHidden = true
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightBlue)
+            cell.label.textColor = UIColor(named: K.BrandColors.navyBlue)
+        }
+            
+        
         return cell
     }
 }

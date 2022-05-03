@@ -293,7 +293,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="POz-11-5A0"/>
                                         </constraints>
-                                        <color key="textColor" name="LightBlue"/>
+                                        <color key="textColor" name="NavyBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
