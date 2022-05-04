@@ -7,6 +7,7 @@
 
 import UIKit
 
+//Custom xib cell for message
 class MessageCell: UITableViewCell {
 
     @IBOutlet weak var messageBubble: UIView!
@@ -18,6 +19,7 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        // Corner radius for cell style
         messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
     }
 

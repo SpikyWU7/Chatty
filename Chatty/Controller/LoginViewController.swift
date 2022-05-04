@@ -17,8 +17,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
+        //Firebase method for login
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//              memory leak?
 //              [weak self]
 //              guard let strongSelf = self else { return }
                 if let e = error {

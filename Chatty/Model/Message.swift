@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Message struct
 struct Message {
     let sender: String //mail
     let body: String 

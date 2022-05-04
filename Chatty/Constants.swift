@@ -6,7 +6,7 @@
 //
 
 
-
+//This struct used to exclude typos in project
 struct K {
     static let appName = "💬CHATTY💭"
     static let cellIdentifier = "ReusableCell"
