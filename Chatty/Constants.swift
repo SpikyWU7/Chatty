@@ -1,12 +1,3 @@
-//
-//  Constants.swift
-//  Chatty
-//
-//  Created by Spiky WU7 on 30.04.2022.
-//
-
-
-//This struct used to exclude typos in project
 struct K {
     static let appName = "💬CHATTY💭"
     static let cellIdentifier = "ReusableCell"

@@ -1,13 +1,5 @@
-//
-//  MessageCell.swift
-//  Chatty
-//
-//  Created by Spiky WU7 on 30.04.2022.
-//
-
 import UIKit
 
-//Custom xib cell for message
 class MessageCell: UITableViewCell {
 
     @IBOutlet weak var messageBubble: UIView!
@@ -15,18 +7,13 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var leftImageView: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        // Corner radius for cell style
         messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
