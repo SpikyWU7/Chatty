@@ -1,14 +1,36 @@
 # Chatty
-Messenger app.
-Firebase Cloud Firestore, TableViews, NavController Stacks, Segues and Cocoapods.
+## Messenger app.
 
+- Firebase Cloud Firestore 
+- TableViews
+- NavController Stacks
+- Segues and Cocoapods
 
-https://user-images.githubusercontent.com/98030015/166667529-b13585f3-1d98-494d-81e7-95864f1ec7cd.mp4
+### Main screen
+- Animated label
 
+https://user-images.githubusercontent.com/98030015/168879030-fe602ee8-c197-4cb6-a893-4efb25d11ba4.mov
 
-![IMG_1623](https://user-images.githubusercontent.com/98030015/166667531-bde108db-408f-4321-a9ab-112eb5a85b3e.png) ![IMG_1624](https://user-images.githubusercontent.com/98030015/166667532-a71a394f-beb7-4da9-af33-7036d29dadb1.png) ![IMG_1625](https://user-images.githubusercontent.com/98030015/166667514-4034cc79-a111-4529-a4b9-60124cdfceb1.png)
-![IMG_1627](https://user-images.githubusercontent.com/98030015/166667519-e3e6d938-8804-428b-9963-ec17847bc3d8.png) ![IMG_1628](https://user-images.githubusercontent.com/98030015/166667521-7423ea82-2383-4c1c-a3ec-00a9ecba2ad5.png) ![IMG_1629](https://user-images.githubusercontent.com/98030015/166667523-5b2ae8e2-5247-43ba-ab69-ea110e8c4a42.png)
-![IMG_1630](https://user-images.githubusercontent.com/98030015/166667526-229c6ce2-030f-4f8e-9201-bc209c6cc0de.png)
+### User registration screen
+- Firebase registration
+- Password text field is secured
 
+<img src="https://user-images.githubusercontent.com/98030015/168875911-5394e72a-3374-49f2-8ce9-34000043c5f0.PNG" width="331" height="717" />
+
+### User sign in screen
+- Signing through Firebase
+- Password text field is secured
+
+<img src="https://user-images.githubusercontent.com/98030015/168877203-43dfec21-ad38-461f-aa54-4d2cfd1cf1a2.jpg" width="331" height="717" />
+
+### Chat screen
+
+<img src="https://user-images.githubusercontent.com/98030015/168880266-e5829917-212a-494a-b268-cef1b461072e.PNG" width="331" height="717" />
+
+### Firestore messages database collection
+
+<img src="https://user-images.githubusercontent.com/98030015/168880747-00e7fd50-fa7e-447a-98d3-d91f4590ba9d.PNG" width="717" height="331" />
+
+<img src="https://user-images.githubusercontent.com/98030015/168880723-076aa1ae-b6f1-46a2-ad40-e82e889e521c.PNG" width="717" height="331" />
 
 
