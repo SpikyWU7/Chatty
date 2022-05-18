@@ -2,13 +2,13 @@ import Foundation
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController {
+final class ChatViewController: UIViewController {
     
-    @IBOutlet private var chatTableView: UITableView!
+    @IBOutlet var chatTableView: UITableView!
     @IBOutlet private var messageTextField: UITextField!
     
-    var listener: ListenerRegistration?
-    let db = Firestore.firestore()
+    private var listener: ListenerRegistration?
+    private let db = Firestore.firestore()
     var messages: [Message] = [Message(sender: "1@1.com", body: "test")]
     
     override func viewDidLoad() {
@@ -20,35 +20,35 @@ class ChatViewController: UIViewController {
         loadMessages()
     }
     
-//MARK: - LoadMessages -> reloadTableView
+    // MARK: - func loadMessages
     private func loadMessages() {
         listener = db.collection(K.FStore.collectionName)
             .order(by: K.FStore.dateField)
             .addSnapshotListener { (querySnapshot, error) in
-            self.messages = []
-            
-            if let e = error {
-                print("ERROR: Issue with retrieving data from Firestore. \(e)")
-            } else {
-                if let snapshotDocuments = querySnapshot?.documents {
+                self.messages = []
+                
+                if let e = error {
+                    print("ERROR: Issue with retrieving data from Firestore. \(e)")
+                } else {
+                    guard let snapshotDocuments = querySnapshot?.documents else { return }
                     for doc in snapshotDocuments {
                         let data = doc.data()
-                        if let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String {
-                            let newMessage = Message(sender: messageSender, body: messageBody)
-                            self.messages.append(newMessage)
-                            DispatchQueue.main.async {
-                                self.chatTableView.reloadData()
-                                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                                self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                            }
+                        guard let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String else { return }
+                        let newMessage = Message(sender: messageSender, body: messageBody)
+                        self.messages.append(newMessage)
+                        DispatchQueue.main.async {
+                            self.chatTableView.reloadData()
+                            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                            self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                            
                         }
+                        
                     }
                 }
             }
-        }
     }
     
-//MARK: - sendMessagePressed
+    // MARK: - sendMessagePressed
     @IBAction private func sendMessagePressed(_ sender: UIButton) {
         
         if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
@@ -70,7 +70,7 @@ class ChatViewController: UIViewController {
         }
     }
     
-//MARK: - func logOutPressed
+    // MARK: - func logOutPressed
     @IBAction private func logOutPressed(_ sender: UIBarButtonItem) {
         let firebaseAuth = Auth.auth()
         if let safeListener = listener {
@@ -85,7 +85,7 @@ class ChatViewController: UIViewController {
     }
 }
 
-//MARK: - Extension for ChatVC: TableViewDataSource
+// MARK: - Extension for ChatVC: TableViewDataSource
 extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -96,15 +96,9 @@ extension ChatViewController: UITableViewDataSource {
         cell.label.text = message.body
         
         if message.sender == Auth.auth().currentUser?.email {
-            cell.leftImageView.isHidden = true
-            cell.rightImageView.isHidden = false
-            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.navyBlue)
-            cell.label.textColor = UIColor(named: K.BrandColors.lightBlue)
+            cell.setup(isSender: true)
         } else {
-            cell.leftImageView.isHidden = false
-            cell.rightImageView.isHidden = true
-            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightBlue)
-            cell.label.textColor = UIColor(named: K.BrandColors.navyBlue)
+            cell.setup(isSender: false)
         }
         return cell
     }

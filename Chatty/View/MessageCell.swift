@@ -1,19 +1,30 @@
 import UIKit
 
-class MessageCell: UITableViewCell {
+final class MessageCell: UITableViewCell {
 
-    @IBOutlet weak var messageBubble: UIView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var rightImageView: UIImageView!
-    @IBOutlet weak var leftImageView: UIImageView!
+    @IBOutlet private var messageBubble: UIView!
+    @IBOutlet var label: UILabel!
+    @IBOutlet private var rightImageView: UIImageView!
+    @IBOutlet private var leftImageView: UIImageView!
+    
+    func setup(isSender: Bool) {
+        if isSender {
+            leftImageView.isHidden = true
+            rightImageView.isHidden = false
+            messageBubble.backgroundColor = UIColor(named: K.BrandColors.navyBlue)
+            label.textColor = UIColor(named: K.BrandColors.lightBlue)
+        } else {
+            leftImageView.isHidden = false
+            rightImageView.isHidden = true
+            messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightBlue)
+            label.textColor = UIColor(named: K.BrandColors.navyBlue)
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
 }

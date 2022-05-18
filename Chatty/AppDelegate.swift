@@ -11,9 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Firebase initialization
         FirebaseApp.configure()
         
-        //Database (for messages)
+        //Database
         let db = Firestore.firestore()
-        print(db)
         
         //Keyboard manager library
         IQKeyboardManager.shared.enable = true

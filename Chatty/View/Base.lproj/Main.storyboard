@@ -343,7 +343,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatTableView" destination="S6L-hg-cne" id="EDY-f4-urV"/>
+                        <outlet property="chatTableView" destination="S6L-hg-cne" id="L3o-tX-HHX"/>
                         <outlet property="messageTextField" destination="UWj-GQ-Vph" id="LHG-Z0-8j7"/>
                     </connections>
                 </viewController>

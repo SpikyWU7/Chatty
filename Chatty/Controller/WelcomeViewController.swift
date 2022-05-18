@@ -1,13 +1,12 @@
 import UIKit
 import CLTypingLabel
 
-class WelcomeViewController: UIViewController {
+final class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: CLTypingLabel!
+    @IBOutlet private var titleLabel: CLTypingLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //String names from "Constants.swift"
         titleLabel.text = K.appName
     }
 }
