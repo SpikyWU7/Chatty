@@ -124,7 +124,7 @@
                                             <color key="titleColor" red="1" green="0.90196078430000004" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzH-hV-Nby"/>
+                                            <action selector="registerButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="goT-OJ-GFI"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="jY9-l3-E1g">
@@ -228,7 +228,7 @@
                                             <color key="titleColor" name="NavyBlue"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginButtonPressed:" destination="5v2-hE-4Ub" eventType="touchUpInside" id="Gpg-UF-8f1"/>
+                                            <action selector="loginButtonPressed" destination="5v2-hE-4Ub" eventType="touchUpInside" id="YYC-cg-LRT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -308,7 +308,7 @@
                                         <color key="tintColor" name="LightBlue"/>
                                         <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="sendMessagePressed:" destination="lwd-AH-u8E" eventType="touchUpInside" id="47j-m0-8eg"/>
+                                            <action selector="sendMessagePressed" destination="lwd-AH-u8E" eventType="touchUpInside" id="STu-eY-dGp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -338,7 +338,7 @@
                     <navigationItem key="navigationItem" id="Q5u-eL-Bgp">
                         <barButtonItem key="rightBarButtonItem" title="Log Out ↩︎" style="done" id="oJ0-lI-A5j">
                             <connections>
-                                <action selector="logOutPressed:" destination="lwd-AH-u8E" id="ec5-7p-zSs"/>
+                                <action selector="logOutPressed:" destination="lwd-AH-u8E" id="U4P-mn-2PA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -381,7 +381,7 @@
         <designable name="y7D-jv-BlJ"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="BoI-MD-atG"/>
+        <segue reference="wYn-vZ-OgH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>

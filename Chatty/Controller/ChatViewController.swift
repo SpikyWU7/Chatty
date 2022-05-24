@@ -27,29 +27,24 @@ final class ChatViewController: UIViewController {
             .addSnapshotListener { (querySnapshot, error) in
                 self.messages = []
                 
-                if let e = error {
-                    print("ERROR: Issue with retrieving data from Firestore. \(e)")
-                } else {
-                    guard let snapshotDocuments = querySnapshot?.documents else { return }
-                    for doc in snapshotDocuments {
-                        let data = doc.data()
-                        guard let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String else { return }
-                        let newMessage = Message(sender: messageSender, body: messageBody)
-                        self.messages.append(newMessage)
-                        DispatchQueue.main.async {
-                            self.chatTableView.reloadData()
-                            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                            self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
-                            
-                        }
-                        
-                    }
+                guard error == nil else { return }
+                guard let snapshotDocuments = querySnapshot?.documents else { return }
+                for doc in snapshotDocuments {
+                    let data = doc.data()
+                    guard let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String else { return }
+                    let newMessage = Message(sender: messageSender, body: messageBody)
+                    self.messages.append(newMessage)
+                }
+                DispatchQueue.main.async {
+                    self.chatTableView.reloadData()
+                    let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                    self.chatTableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
             }
     }
     
     // MARK: - sendMessagePressed
-    @IBAction private func sendMessagePressed(_ sender: UIButton) {
+    @IBAction private func sendMessagePressed() {
         
         if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
             db.collection(K.FStore.collectionName).addDocument(data: [
@@ -57,21 +52,20 @@ final class ChatViewController: UIViewController {
                 K.FStore.bodyField: messageBody,
                 K.FStore.dateField: Date().timeIntervalSince1970
             ]) { (error) in
-                if let e = error {
-                    print("Error: Some issue with saving data to firestore, \(e)")
-                } else {
-                    print("Succesfuly saved data")
-                    DispatchQueue.main.async {
-                        self.messageTextField.endEditing(true)
-                        self.messageTextField.text = ""
-                    }
+                guard error == nil else { return }
+                print("Succesfuly saved data")
+                DispatchQueue.main.async {
+                    self.messageTextField.endEditing(true)
+                    self.messageTextField.text = ""
+                    
                 }
             }
         }
     }
     
     // MARK: - func logOutPressed
-    @IBAction private func logOutPressed(_ sender: UIBarButtonItem) {
+    @IBAction private func logOutPressed(_ sender: Any) {
+        
         let firebaseAuth = Auth.auth()
         if let safeListener = listener {
             safeListener.remove()
@@ -90,6 +84,7 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
         let cell = chatTableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
